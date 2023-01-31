@@ -1,0 +1,84 @@
+<apex:page sidebar="false" showHeader="false" >
+
+
+  <div class="page">
+    <div class="container">
+
+
+          <img class="logo" src="https://curious-otter-hkwbmh-dev-ed--c.trailblaze.vf.force.com/resource/1674063819000/logo?" />
+          <h1 class="heading--1">
+            Lamber Flowers
+          </h1>
+          <h2 class="heading--2">
+            Thanks for contact.
+          </h2>
+        <p>Check your email and wait for us.</p>
+        <input class="btn--submit" type="button" name="back"  value="Back" onclick="backHome()" />
+
+
+    </div>
+  </div>
+<script>
+    function backHome(){
+       window.location.href = "https://britenet-14f-dev-ed.develop.my.salesforce-sites.com/addLead";
+    }
+
+</script>
+  <style>
+         *{
+           box-sizing: border-box;
+           }
+         .logo{
+
+           width: 6rem;
+
+
+           }
+           .heading--1{
+           color: purple;
+           font-size: 2rem;
+
+           }
+           .heading--2{
+           font-size: 1.5rem
+
+           }
+           .page{
+               width:100vw;
+               height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+           }
+           .container{
+               display: flex;
+               flex-direction: column;
+               width: auto;
+               align-items: center;
+               height: min-content;
+               padding: 2rem 4rem;
+               border: 2px solid purple;
+           }
+           .btn{
+               background-color: black;
+           }
+           .btn--submit{
+            font-size: 1rem;
+            background-color: purple;
+            padding: .75rem 1.5rem;
+            border:none;
+            color: #F8F8F8;
+            cursor: pointer;
+            transition: all .75s ease;
+            margin-top: 2rem;
+            align-self: center;
+           }
+            .btn--submit:hover{
+            background-color: pink;
+           }
+
+
+
+
+    </style>
+</apex:page>

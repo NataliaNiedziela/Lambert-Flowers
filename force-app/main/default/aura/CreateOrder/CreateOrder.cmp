@@ -1,0 +1,6 @@
+<aura:component controller="OpportunityOrder" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasRecordId,flexipage:availableForRecordHome">
+	<aura:attribute name="recordId" type="Id" default=""/>
+	<aura:attribute name="isButtonActive" type="Boolean" default="true" />
+    <lightning:button variant="brand" label="Create Order" title="Create Order" onclick="{! c.init }" disabled= "{!v.isButtonActive}" />
+
+</aura:component>

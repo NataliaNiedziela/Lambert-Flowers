@@ -1,0 +1,280 @@
+<apex:page sidebar="false" showHeader="false" lightningStyleSheets="true">
+    <head>
+        <apex:slds />
+    </head>
+   <body class="page">
+
+
+       <div class="container">
+           <section class="container__form">
+               <header class="header">
+                   <img class="logo" src="https://curious-otter-hkwbmh-dev-ed--c.trailblaze.vf.force.com/resource/1674063819000/logo?" />
+                   <h1 class="heading--1">
+                       You bring the thought. We’ll bring the flowers.
+                   </h1>
+                   <h2 class="heading--2">
+                       Join to us!
+                   </h2>
+               </header>
+
+               <form class="form" id="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                   <input type="hidden" name="oid" value="00D68000000Z8VT"/>
+                   <input type="hidden" name="retURL" value="https://britenet-14f-dev-ed--c.develop.vf.force.com/apex/AddLeadSuccess?core.apexpages.request.devconsole=1"/>
+                   <!--  ----------------------------------------------------------------------  -->
+                   <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                   <!--  these lines if you wish to test in debug mode.                          -->
+                   <!--  <input type="hidden" name="debug" value=1>                              -->
+                   <!--  <input type="hidden" name="debugEmail"                                  -->
+                   <!--  value="natalia.niedziela@britenet.com.pl">                              -->
+                   <!--  ----------------------------------------------------------------------  -->
+                   <label class="form__label" for="first_name"><span class="asterisk">&#42;</span> First Name</label><input class="form__input" id="first_name" maxlength="40" name="first_name" size="20" type="text" pattern="[A-Za-z]*" required="true" />
+
+                   <label  class="form__label" for="last_name"><span class="asterisk">&#42;</span> Last Name</label><input class="form__input" id="last_name" maxlength="80" name="last_name" size="20" type="text" pattern="[A-Za-z]*" required="true"/>
+
+                   <label  class="form__label" for="email"><span class="asterisk">&#42;</span> Email</label><input class="form__input" id="email" maxlength="80" name="email" size="20" type="email" required="true" />
+
+                   <label  class="form__label" for="company"><span class="asterisk">&#42;</span> Company</label><input class="form__input" id="company" maxlength="40" name="company" size="20" type="text" required="true" />
+
+                   <label class="form__label" for="state"><span class="asterisk">&#42;</span> State/province</label><input  class="form__input" id="state" maxlength="40" name="state" size="20" type="text"  pattern="[A-Za-z]*" required="true"/>
+
+                   <label  class="form__label" for="city"><span class="asterisk">&#42;</span> City</label><input class="form__input" id="city" maxlength="40" name="city" size="20" type="text" pattern="[A-Za-z]*" required="true" />
+
+                   <label  class="form__label" for="phone"><span class="asterisk">&#42;</span> Phone</label><input class="form__input" id="phone" minlength="9" maxlength="13" name="phone" size="20" type="text"  pattern="[0-9]{9}" required="true" />
+
+                   <input class="btn--submit" type="submit" name="submit" onsubmit="showSpinner()"  />
+
+               </form>
+           </section>
+           <img class="addLeadIMG" src="https://curious-otter-hkwbmh-dev-ed--c.trailblaze.vf.force.com/resource/1674064676000/LeadFormIMG?"/>
+
+           <div>
+            
+               <a id="liveagent_button_online_57368000001158s" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('57368000001158s')"></a>
+               <div id="liveagent_button_offline_57368000001158s" style="display: none;"></div>
+           </div>
+
+
+       </div>
+       <div class="demo-only" id="spinner">
+           <div class="slds-spinner_container">
+               <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                   <span class="slds-assistive-text">Loading</span>
+                   <div class="slds-spinner__dot-a"></div>
+                   <div class="slds-spinner__dot-b"></div>
+               </div>
+           </div>
+       </div>
+
+     <!--chat-->
+       <script type='text/javascript' src='https://c.la3-c2-fra.salesforceliveagent.com/content/g/js/56.0/deployment.js'></script>
+       <script type='text/javascript'>liveagent.init('https://d.la3-c2-fra.salesforceliveagent.com/chat', '57268000000sgln', '00D68000000Z8VT');</script>
+
+       <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+   </body>
+    <script>
+     /*/----------------chat /*/
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://britenet-14f-dev-ed.develop.my.salesforce.com',
+			'https://britenet-14f-dev-ed.develop.my.salesforce-sites.com/addLead',
+			gslbBaseURL,
+			'00D68000000Z8VT',
+			'Chat_Team_2',
+			{
+				baseLiveAgentContentURL: 'https://c.la3-c2-fra.salesforceliveagent.com/content',
+				deploymentId: '57268000000sgls',
+				buttonId: '5736800000115DF',
+				baseLiveAgentURL: 'https://d.la3-c2-fra.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Chat_Team_2',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://britenet-14f-dev-ed.develop.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+     /*/------------------live agent /*/
+    if (!window._laq) { window._laq = []; }
+        window._laq.push(function(){liveagent.showWhenOnline('57368000001158s', document.getElementById('liveagent_button_online_57368000001158s'));
+        liveagent.showWhenOffline('57368000001158s', document.getElementById('liveagent_button_offline_57368000001158s'));
+        });
+
+        /*/------------------spinner display /*/
+        function showSpinner(){
+            let spinner = document.getElementById("spinner");
+            spinner.style.display = "block";
+        }
+
+    </script>
+       <style>
+    .embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: purple;
+		font-family: "Arial", sans-serif;
+		font-size: 1rem;
+		outline: none;
+
+	}
+	.message{
+	    color: white !important;
+	    background-color: purple !important;
+        border: none !important;
+ }
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: none;
+			color: white;
+	}
+       /*/-------------------my style /*/
+       .asterisk{
+           color: purple;
+       }
+       .demo-only{
+           display: none;
+           position: absolute;
+           top: 0;
+           left: 50%;
+           transform: translate(-50%);
+           height: 100vh;
+           width: 100vw;
+           background-color: rgba(240, 240, 240, .9);
+       }
+         *, .slds-scope{
+           box-sizing: border-box;
+           }
+         .logo{
+          
+           width: 6rem;
+           position: relative;
+           transform: translateX(-30px);
+           }
+           .heading--1, .slds-scope h1{
+           color: purple;
+           font-size: 2rem;
+
+           }
+           .heading--2, .slds-scope h2{
+           font-size: 1.5rem
+        
+           }
+           .paragraph{
+           
+           }
+           .addLeadIMG{
+                    
+            height: 100%;
+            width:100%;
+            object-fit: cover;
+           }
+         
+           .page{
+            width:100vw;
+            min-height: 100vh;
+            background-color:#F8F8F8;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            position: relative;
+           }
+            .container{
+
+            background-color:#FFFFFF;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100vh;
+            align-items: center;
+            height:min-content
+            padding: 5rem;
+           }
+           
+           .header{
+            display: flex;
+            flex-direction: column;
+           }
+          
+           .container__form{
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            height: 100%;
+           }
+           .form{
+            display: flex;
+            flex-direction: column;
+            align-content:space-between;
+           }
+           .form__input{
+            height:2rem;
+           font-size: 1rem;
+            border:none;
+            border-bottom: 1px solid black;
+            background-color:#FFFFFF;
+            outline:none;
+            transition: all .5s ease;
+           }
+
+           .form__label{
+            margin-top: 1.75rem;
+            font-size: 1rem;
+           }
+           .form__input:focus {
+            border-bottom: 1px solid purple;
+            color:purple;
+           }
+           .btn--submit{
+            font-size: 1rem;
+            background-color: purple;
+            padding: .75rem 1.5rem;
+            border:none;
+            color: #F8F8F8 !important;
+            cursor: pointer;
+            transition: all .75s ease;
+            margin-top: 2rem !important;
+            align-self: center;
+            font-family: 'Arial', 'sans-serif' !important;
+           }
+
+            .btn--submit:hover{
+            background-color: pink;
+           }
+          /*spinner dots /*/
+          .slds-scope .slds-spinner_brand.slds-spinner:before, .slds-scope .slds-spinner_brand.slds-spinner:after,
+          .slds-scope .slds-spinner_brand .slds-spinner__dot-a:before, .slds-scope .slds-spinner_brand
+          .slds-spinner__dot-b:before, .slds-scope .slds-spinner_brand .slds-spinner__dot-a:after, .slds-scope
+          .slds-spinner_brand .slds-spinner__dot-b:after, .slds-scope .slds-spinner--brand.slds-spinner:before,
+          .slds-scope .slds-spinner--brand.slds-spinner:after, .slds-scope .slds-spinner--brand .slds-spinner__dot-a:before,
+          .slds-scope .slds-spinner--brand .slds-spinner__dot-b:before, .slds-scope .slds-spinner--brand .slds-spinner__dot-a:after,
+           .slds-scope .slds-spinner--brand .slds-spinner__dot-b:after{
+               background-color: purple;
+           }
+    </style>
+</apex:page>
