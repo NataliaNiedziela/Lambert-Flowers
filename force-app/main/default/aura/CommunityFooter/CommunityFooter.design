@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="footer" label="Footer Message" description="Text you want to add in footer"></design:attribute>
+	<design:attribute name="footerYear" label="Year" description="Currnt year"></design:attribute>
+</design:component>

@@ -1,0 +1,8 @@
+<aura:component description="footer" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="footer" type="String" default="Lambert Flowers" access="global"></aura:attribute>
+	<aura:attribute name="footerYear" type="String" default="2023" access="global"></aura:attribute>
+    <div class="grid">
+        <span>{!v.footer}</span> <br />
+        <span> &copy; Copyright {!v.footerYear}</span>
+    </div>
+</aura:component>
